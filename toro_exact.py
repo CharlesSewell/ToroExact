@@ -152,7 +152,12 @@ if(__name__ == '__main__'):
 		dens, pres, velx, eint, cspd = rp.sample(s)
 
 		# Write to output
+
 		filename = 'output/toro_{:s}_exact.dat'.format(icase)
+
+		import os
+
+		os.makedirs(os.path.dirname(filename), exist_ok=True)
 		sys.stdout.write('  Writing to file: {:s}\n'.format(filename))
 		with open(filename,'w+') as file:
 			file.write('# Exact Riemann solution for problem: {:s}\n'.format(icase))
